@@ -51,10 +51,10 @@
     <script>
         function checkout() {
             CinetPay.setConfig({
-                apikey: '',//   YOUR APIKEY
-                site_id: '',//YOUR_SITE_ID
-                notify_url: 'http://mondomaine.com/notify/',
-                mode: 'PRODUCTION'
+                apikey: '447088687629111c58c3573.70152188',
+                    site_id: 83aa4249-3109-46a2-9938-1bf8ca2a4e47,
+                    mode: 'PRODUCTION',
+                    notify_url: 'https://kondropay.netlify.app'
             });
             CinetPay.getCheckout({
                 transaction_id: Math.floor(Math.random() * 100000000).toString(),
