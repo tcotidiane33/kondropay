@@ -7,24 +7,12 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="generator" content="Odoo"/>
-
-
-        <link rel="canonical" href="http://localhost:8069/"/>
-
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
-        <title> Home | My Website </title>
+        <title> Home | KOndroPay </title>
         <link type="image/x-icon" rel="shortcut icon" href="https://media.licdn.com/dms/image/C4E0BAQH497gKDj8gfQ/company-logo_200_200/0/1628166859422?e=1700092800&v=beta&t=ymekSu9qaTHVKvLeNGSQCBODkyN74cbn81LXcOQGi2o"/>
         <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin=""/>
         <link type="text/css" rel="stylesheet" href="/assets_frontend.min.css" data-asset-bundle="web.assets_frontend" data-asset-version="f5e66c7"/>
 
-        <script type="text/javascript">
-            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_website_user": true, "user_id": false, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "bundle_params": {"lang": "fr_FR", "website_id": 1}, "translationURL": "/website/translations", "cache_hashes": {"translations": "a1477f98a1a9e2477945ca30bc9cf6ff3cae6b84"}, "geoip_country_code": null, "geoip_phone_code": null, "lang_url_code": "fr"};
-            if (!/(^|;\s)tz=/.test(document.cookie)) {
-                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                document.cookie = `tz=${userTZ}; path=/`;
-            }
-        </script>
         <script defer="defer" type="text/javascript" src="/assets_frontend_minimal.min.js" data-asset-bundle="web.assets_frontend_minimal" data-asset-version="fc99a2b"></script>
 <script src="https://cdn.cinetpay.com/seamless/main.js"></script>
     <style>
@@ -38,48 +26,7 @@
             transform: translate(-50%, -50%);
         }
     </style>
-    <script>
-        function checkout() {
-            CinetPay.setConfig({
-                apikey: '447088687629111c58c3573.70152188',
-                site_id: 83aa4249-3109-46a2-9938-1bf8ca2a4e47,
-                mode: 'PRODUCTION',
-                notify_url: 'https://kondropay.netlify.app'
-            });
-            CinetPay.getCheckout({
-                transaction_id: Math.floor(Math.random() * 100000000).toString(),
-                amount: 100,
-                currency: 'XOF',
-                channels: 'ALL',
-                description: 'Test de paiement',
-                 //Fournir ces variables pour le paiements par carte bancaire
-                customer_name:"Super",//Le nom du client
-                customer_surname:"Nova",//Le prenom du client
-                customer_email: "support@kondronetworks.com",//l'email du client
-                customer_phone_number: "0769469844",//l'email du client
-                customer_address : "BP 01 ABIDJAN",//addresse du client
-                customer_city: "Cocody",// La ville du client
-                customer_country : "Ivory coast",// le code ISO du pays
-                customer_state : "Abidjan",// le code ISO l'état
-                customer_zip_code : "06510", // code postal
-
-            });
-            CinetPay.waitResponse(function(data) {
-                if (data.status == "REFUSED") {
-                    if (alert("Votre paiement a échoué")) {
-                        window.location.reload();
-                    }
-                } else if (data.status == "ACCEPTED") {
-                    if (alert("Votre paiement a été effectué avec succès")) {
-                        window.location.reload();
-                    }
-                }
-            });
-            CinetPay.onError(function(data) {
-                console.log(data);
-            });
-        }
-    </script>
+    <script src="script.js" type="text/javascript"></script>
 
     </head>
     <body>
@@ -153,20 +100,18 @@
             <h1 style="text-align: center;"><font style="font-size: 62px; font-weight: bold;">Welcome To KondroNetworks</font></h1>
             <p class="lead" style="text-align: center;">Ecrivez un ou deux paragraphes décrivant votre produit, vos services ou une fonctionnalité spécifique.<br/> Pour avoir du succès, votre contenu doit être utile pour vos lecteurs.</p>
             <p style="text-align: center;">
-                <a class="btn btn-primary mb-2" href="/contactus">Contactez-nous</a>
+                <a class="btn btn-primary mb-2 " href="./cinetpay.html">Try a Payment !</a>
             </p>
         </div>
+
     </section><section class="s_text_image pt32 pb32" data-snippet="s_text_image">
+
         <div class="container">
+
             <div class="row align-items-center">
                 <div class="col-lg-6 pt16 pb16">
                     <h2>Un sous-titre de section</h2>
-                                      <!-- corps du site -->
-                    <div class="sdk">
-                        <h1>SDK SEAMLESS</h1>
-                        <button onclick="checkout()">Checkout</button>
-                    </div>
-                                    <!-- end integration -->
+
                     <p>Écrivez un ou deux paragraphes décrivant votre produit ou vos services. Pour réussir, votre contenu doit être utile à vos lecteurs.</p>
                     <p>Commencez par le client: trouvez ce qu'il veut et donner-le lui.</p>
                     <p><a href="#" class="btn btn-primary mb-2">En savoir plus</a></p>
